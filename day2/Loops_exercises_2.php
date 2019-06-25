@@ -35,7 +35,8 @@ for ($i = 0; $i < 5; $i++) {
 		* 
 
 	*/
-
+echo $stars;
+echo '<br>';
 for ($i = 0; $i < 5; $i++) {
 	$stars = substr($stars, 1);
 	echo $stars;
