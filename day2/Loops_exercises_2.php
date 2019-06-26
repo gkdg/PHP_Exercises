@@ -45,7 +45,7 @@ for ($i = 0; $i < 5; $i++) {
 
 
 
-	/*
+/*
 	- Exercise 3 : 
 
 		We already have two arrays :
@@ -81,8 +81,25 @@ for ($i = 0; $i < 5; $i++) {
 		        )            
 		    )
 	*/
+$artists = array(
+	0 => array("Eminem", "IAM"),
+	1 => array("Madonna", "Katy Perry"),
+	2 => array("Pink Floyd", "AC/DC")
+);
 
-	/*
+$style = array(
+	0 => "Rap",
+	1 => "Pop",
+	2 => "Rock"
+);
+
+$newArray = [];
+foreach ($style as $key => $value) {
+	$newArray[$value] = $artists[$key];
+}
+echo var_dump($newArray);
+
+/*
 	-Exercise 4 :
 	
 		We have an array of bank transactions, which indicates the credit and debit amounts of each person.
@@ -131,8 +148,35 @@ for ($i = 0; $i < 5; $i++) {
 		    )
 		);
 	*/
+echo '<hr>';
+$transactions = array(
+	"Marie" => array(
+		"debit" => 6,
+		"credit" => 9
+	),
+	"Julien" => array(
+		"debit" => 21,
+		"credit" => 19
+	),
+	"Sophie" => array(
+		"debit" => 15,
+		"credit" => 14
+	),
+	"John" => array(
+		"debit" => 10,
+		"credit" => 14
+	)
+);
+$total = 0;
+foreach ($transactions as $name => $value) {
+	$total = $value['credit'] - $value['debit'];
+	echo $total . '<br>';
+	$transactions[$name]['amount'] = $total;
+};
 
-	/*
+echo var_dump($transactions);
+
+/*
 	- Final exercise - ONLY FOR THE BEASTS
 
 		We have an array of integers, unsorted, with all numbers from 1 to 50 BUT one element is missing (the array is therefore 49).
@@ -158,3 +202,26 @@ for ($i = 0; $i < 5; $i++) {
 	        echo "Missing number is: " . $var;
 
 	*/
+
+$missingNumber = array(
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+	30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+);
+$allNumber = array(
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+	30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+);
+
+$total = 0;
+$total2 = 0;
+for ($i = 0; $i < count($missingNumber) +
+
+
+	1; $i++) {
+	$total += $i;
+};
+foreach ($missingNumber as $key => $value) {
+	$total2 += $value;
+};
+$missingValue = $total - $total2;
+echo $missingValue . '<br>';

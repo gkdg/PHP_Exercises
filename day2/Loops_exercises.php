@@ -86,10 +86,36 @@ echo '<hr>';
 		Find the greatest value.
 	*/
 $randomNumbs = [];
+
 for ($i = 0; $i < 11; $i++) {
-	$randomNumbs[] = rand(0, 100);
+	$randomNumbs[] = rand(-100, 100);
 };
 echo var_dump($randomNumbs);
 echo '<hr>';
 echo 'Smallest number: ' . min($randomNumbs) . '<br>';
 echo 'Biggest number: ' . max($randomNumbs);
+echo '<hr>';
+
+
+$max = $randomNumbs[0];
+$maxPos = 0;
+$min = $randomNumbs[0];
+$minPos = 0;
+foreach ($randomNumbs as $key => $value) {
+	if ($value > $max) {
+		$max = $value;
+		$maxPos = $key;
+	};
+	if ($value < $min) {
+		$min = $value;
+		$minPos = $key;
+	};
+};
+echo 'Smallest number is: ' . $min . '<br>';
+echo 'Biggest number is: ' . $max . '<br>';
+echo '<hr>';
+echo 'The position of smallest number is:' . array_search($min, $randomNumbs) . '<br>';
+echo 'Biggest number is: ' . array_search($max, $randomNumbs) . '<br>';
+echo '<hr>';
+echo 'The position of smallest number is:' . $minPos . '<br>';
+echo 'Biggest number is: ' . $maxPos . '<br>';
