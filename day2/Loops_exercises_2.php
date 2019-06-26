@@ -203,25 +203,14 @@ echo var_dump($transactions);
 
 	*/
 
-$missingNumber = array(
-	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
-	30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
-);
-$allNumber = array(
-	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
-	30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
-);
+$missingNumber = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 11);
 
-$total = 0;
-$total2 = 0;
-for ($i = 0; $i < count($missingNumber) +
-
-
-	1; $i++) {
-	$total += $i;
+$totaly = 0;
+for ($i = 0; $i <= count($missingNumber) + 1; $i++) {
+	$totaly += $i;
 };
 foreach ($missingNumber as $key => $value) {
-	$total2 += $value;
+	$totaly -= $value;
 };
-$missingValue = $total - $total2;
-echo $missingValue . '<br>';
+
+echo $totaly;
