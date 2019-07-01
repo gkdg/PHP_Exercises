@@ -10,23 +10,39 @@
 
 <body>
 	<?php
+	$firstName = '';
+	$lastName = '';
+	if (isset($_GET['submitButton'])) {
+		$firstName = $_GET['firstName'];
+		$lastName = $_GET['lastName'];
+	}
+	$users = array('Magnus', 'Garry', 'Bobby', 'Anatoly', 'Fabiano',);
 	var_dump($_GET);
 
-	$firstName = $_GET['firstName'];
-	$lastName = $_GET['lastName'];
 
-	echo $firstName . ' ' . $lastName;
 
+	echo $firstName . ' ' . $lastName . '<br>';
+
+	$i = false;
+	foreach ($users as $key) {
+		if ($firstName == $key) {
+			$i = true;
+			break;
+		}
+	};
+
+	if ($i == true) {
+		echo 'Welcome';
+	} else {
+		echo 'Go Away';
+	}
 
 	?>
 	<form action="" method="GET">
-		<input type="text" name="firstName" value="<?php $firstName ?>" placeholder="Your first name">
-		<input type="text" name="lastName" value="<?php $lastName ?>" placeholder="Your last name">
-		<input type="submit" value="submit">
+		<input type="text" name="firstName" value="<?php echo $firstName ?>" placeholder="Your first name">
+		<input type="text" name="lastName" value="<?php echo $lastName ?>" placeholder="Your last name">
+		<input type="submit" value="submit" name="submitButton">
 	</form>
-
-
-
 
 </body>
 
